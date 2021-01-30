@@ -8,7 +8,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Entity
-public class Memo extends Timestamped{
+public class Memo extends Timestamped {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -33,4 +34,6 @@ public class Memo extends Timestamped{
         this.username = memoRequestDto.getUsername();
         this.contents = memoRequestDto.getContents();
     }
+
+
 }

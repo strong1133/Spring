@@ -1,13 +1,13 @@
-package com.restudy.week03;
+package com.restudy.week04;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Week03ApplicationTests {
+class Week04ApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }

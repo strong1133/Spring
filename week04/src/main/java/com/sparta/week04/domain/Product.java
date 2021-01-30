@@ -5,10 +5,10 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Getter
 @NoArgsConstructor
+@Getter
 @Entity
-public class Product extends Timestamped{
+public class Product extends Timestamped {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,10 +18,10 @@ public class Product extends Timestamped{
     private String title;
 
     @Column(nullable = false)
-    private String image;
+    private String link;
 
     @Column(nullable = false)
-    private String link;
+    private String image;
 
     @Column(nullable = false)
     private int lprice;
@@ -35,14 +35,12 @@ public class Product extends Timestamped{
         this.image = productRequestDto.getImage();
         this.lprice = productRequestDto.getLprice();
         this.myprice = 0;
-
-    }
-    public void updateByItemDto (ItemDto itemDto){
-        this.lprice = itemDto.getLprice();
     }
 
     public void update(ProductMypriceRequestDto productMypriceRequestDto){
         this.myprice = productMypriceRequestDto.getMyprice();
     }
-
+    public void updateByItemDto(ItemDto itemDto){
+        this.lprice = itemDto.getLprice();
+    }
 }

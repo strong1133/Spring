@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
 @RequiredArgsConstructor
+@RestController
 public class SearchRequestController {
-
     private final NaverShopSearch naverShopSearch;
 
     @GetMapping("/api/search")
@@ -20,4 +19,5 @@ public class SearchRequestController {
         String resultString = naverShopSearch.search(query);
         return naverShopSearch.fromJSONtoItems(resultString);
     }
+
 }
