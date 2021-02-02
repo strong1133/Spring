@@ -47,22 +47,22 @@ function execSearch() {
      * 검색결과 HTML 만드는 함수: addHTML
      */
         // 1. 검색창의 입력값을 가져온다.
-    let query = $("#query").val();
+    let query = $('#query').val()
     // 2. 검색창 입력값을 검사하고, 입력하지 않았을 경우 focus.
     if (query == '') {
-        alert("검색어를 입력해주세요");
-        $("#query").focus();
+        $('#query').focus();
         return;
     }
+    $('#search-result-box').empty();
     // 3. GET /api/search?query=${query} 요청
     $.ajax({
         type: 'GET',
         url: `/api/search?query=${query}`,
         success: function (response) {
-            $('#search-result-box').empty();
+
             for (let i = 0; i < response.length; i++) {
-                let itmeDto = response[i];
-                let tempHtml = addHTML(itmeDto);
+                let itemDto = response[i]
+                let tempHtml = addHTML(itemDto);
                 $('#search-result-box').append(tempHtml);
             }
         }
@@ -104,7 +104,7 @@ function addProduct(itemDto) {
     // 1. POST /api/products 에 관심 상품 생성 요청
     $.ajax({
         type: 'POST',
-        url: '/api/products',
+        url: 'api/products',
         contentType: 'application/json',
         data: JSON.stringify(itemDto),
         success: function (response) {
@@ -163,7 +163,7 @@ function addProductItem(product) {
 function setMyprice() {
     let myprice = $('#myprice').val();
     if (myprice == '') {
-        alert("값을 입력해주세요");
+        alert("올바른 가격을 입력해주세요.");
         return;
     }
     $.ajax({
@@ -172,10 +172,9 @@ function setMyprice() {
         contentType: 'application/json',
         data: JSON.stringify({'myprice': myprice}),
         success: function (response) {
-            $('#container').removeClass('active');
-            alert("최저가가 설정되었습니다.")
+            $('#container').removeClass('active')
+            alert('성공적으로 등록되었습니다.');
             window.location.reload();
         }
     })
-
 }
