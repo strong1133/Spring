@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>정석진의 타임라인서비스</title>
+    <!--JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--Google Font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+    <!--    font-family: 'Song Myung', serif;-->
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+</head>
+<body>
+<div class="background-header"></div>
+<div class="background-footer"></div>
+<div class="wrap">
+
+    <div class="header">
+        <h2>TimeLine Service</h2>
+        <p>공유하고 싶은 소식을 입력해주세요!</p>
+    </div>
+    <div class="area-write">
+            <textarea name="contents" class="field" id="contents" cols="30" rows="10" placeholder="공유하고 싶은 소식을 입력해주세요!"></textarea>
+        <img src="images/send.png" alt="" id="send" onclick="writeMemo()">
+    </div>
+    <div id="cards-box" class="area-read">
+        <div class="card">
+            <div class="metadata">
+                <div class="date">2021-02-08T14:01:45.182</div>
+                <div class="username" id="1-username">wjdtjrwls455</div>
+            </div>
+            <div class="contents">
+                <div id="1-contents" class="text">크아앙!</div>
+                <div id="1-editarea" class="edit">
+                    <textarea name="" class="te-edit" id="1-textarea" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="footer">
+                <img id="1-edit" class="icon-edit" src="images/edit.png" alt="" onclick="editPost(1)">
+                <img id="1-delete" class="icon-delete" src="images/delete.png" alt="" onclick="deleteOne(1)">
+                <img id="1-submit" class="icon-submit" src="images/done.png" alt="" onclick="submitEdit(1)">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
