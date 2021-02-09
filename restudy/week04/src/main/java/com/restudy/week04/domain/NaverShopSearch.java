@@ -29,8 +29,8 @@ public class NaverShopSearch {
     }
 
     public List<ItemDto> fromJSONtoItems(String result) {
-        JSONObject rjon = new JSONObject(result);
-        JSONArray items = rjon.getJSONArray("items");
+        JSONObject rjson = new JSONObject(result);
+        JSONArray items = rjson.getJSONArray("items");
         List<ItemDto> itemDtoList = new ArrayList<>();
         for (int i = 0; i < items.length(); i++) {
             JSONObject itemJson = items.getJSONObject(i);
@@ -40,5 +40,3 @@ public class NaverShopSearch {
         return itemDtoList;
     }
 }
-
-
