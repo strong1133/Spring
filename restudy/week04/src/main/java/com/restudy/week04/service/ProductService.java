@@ -1,12 +1,12 @@
 package com.restudy.week04.service;
 
+import com.restudy.week04.domain.ProdcutRequestDto;
 import com.restudy.week04.domain.Product;
 import com.restudy.week04.domain.ProductMypriceRequestDto;
 import com.restudy.week04.domain.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
@@ -16,7 +16,7 @@ public class ProductService {
     @Transactional
     public Long update(Long id, ProductMypriceRequestDto productMypriceRequestDto) {
         Product product = productRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("헤당 아이디가 없습니다.")
+                () -> new IllegalArgumentException("해당 아이디가 없습니다.")
         );
         product.update(productMypriceRequestDto);
         return product.getId();

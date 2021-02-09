@@ -1,5 +1,6 @@
 package com.restudy.week04.domain;
 
+
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -9,12 +10,12 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
-@Getter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public abstract class Timestamped {
+@Getter
+public class Timestamped {
     @CreatedDate
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
     @LastModifiedDate
     private LocalDateTime modifiedAt;
 }
