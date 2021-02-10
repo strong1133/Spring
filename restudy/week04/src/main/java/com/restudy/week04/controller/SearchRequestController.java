@@ -12,13 +12,11 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 public class SearchRequestController {
-
     private final NaverShopSearch naverShopSearch;
 
     @GetMapping("/api/search")
     public List<ItemDto> getItems(@RequestParam String query){
-        String resultString =  naverShopSearch.search(query);
+        String resultString = naverShopSearch.search(query);
         return naverShopSearch.fromJSONtoItems(resultString);
     }
-
 }
