@@ -1,6 +1,5 @@
 package com.restudy.week04.service;
 
-import com.restudy.week04.domain.ProdcutRequestDto;
 import com.restudy.week04.domain.Product;
 import com.restudy.week04.domain.ProductMypriceRequestDto;
 import com.restudy.week04.domain.ProductRepository;
@@ -16,9 +15,10 @@ public class ProductService {
     @Transactional
     public Long update(Long id, ProductMypriceRequestDto productMypriceRequestDto) {
         Product product = productRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("해당 아이디가 없습니다.")
+                () -> new IllegalArgumentException("해당 하는 아이디가 없습니다. ")
         );
         product.update(productMypriceRequestDto);
         return product.getId();
     }
 }
+

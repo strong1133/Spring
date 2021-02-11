@@ -3,9 +3,9 @@ package com.restudy.week04.domain;
 import lombok.Getter;
 
 @Getter
-public class ProdcutRequestDto {
+public class ProductRequestDto {
     private String title;
-    private String link;
     private String image;
+    private String link;
     private int lprice;
 }
