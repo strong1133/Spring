@@ -50,25 +50,23 @@ function execSearch() {
     let query = $('#query').val();
     // 2. 검색창 입력값을 검사하고, 입력하지 않았을 경우 focus.
     if (query == '') {
-        alert('검색어를 입력해주세요!');
+        alert('검색어를 입력해주세요!')
         $('#query').focus();
         return;
     }
-    $('#search-result-box').empty();
     // 3. GET /api/search?query=${query} 요청
     $.ajax({
         type: 'GET',
         url: `/api/search?query=${query}`,
         success: function (response) {
+            $('#search-result-box').empty();
             for (let i = 0; i < response.length; i++) {
                 let itemDto = response[i];
-                let tempHtml = addHTML(itemDto);
+                let tempHtml = addHTML(itemDto)
                 $('#search-result-box').append(tempHtml);
             }
         }
     })
-    // 4. for 문마다 itemDto를 꺼내서 HTML 만들고 검색결과 목록에 붙이기!
-
 }
 
 function addHTML(itemDto) {
@@ -77,7 +75,7 @@ function addHTML(itemDto) {
      * image, title, lprice, addProduct 활용하기
      * 참고) onclick='addProduct(${JSON.stringify(itemDto)})'
      */
-    return `<div class="search-itemDto">
+    return ` <div class="search-itemDto">
                 <div class="search-itemDto-left">
                     <img src="${itemDto.image}" alt="">
                 </div>
@@ -85,7 +83,7 @@ function addHTML(itemDto) {
                     <div>${itemDto.title}</div>
                     <div class="price">
                         ${numberWithCommas(itemDto.lprice)}
-                        <span class="unit">원</span>
+                        <span class="unit" >원</span>
                     </div>
                 </div>
                 <div class="search-itemDto-right">
@@ -111,7 +109,6 @@ function addProduct(itemDto) {
             $('#container').addClass('active');
             targetId = response.id;
         }
-
     })
     // 2. 응답 함수에서 modal을 뜨게 하고, targetId 를 reponse.id 로 설정 (숙제로 myprice 설정하기 위함)
 }
@@ -132,7 +129,7 @@ function showProduct() {
             for (let i = 0; i < response.length; i++) {
                 let product = response[i];
                 let tempHtml = addProductItem(product);
-                $('#product-container').append(tempHtml);
+                $("#product-container").append(tempHtml)
             }
         }
     })
@@ -165,22 +162,20 @@ function setMyprice() {
     let myprice = $('#myprice').val();
 
     if (myprice == '') {
-        alert('올바른 가격을 입력해주세요');
+        alert('올바른 가격을 적어주세요')
         return;
     }
+
     $.ajax({
-        type: "PUT",
+        type: 'PUT',
         url: `/api/products/${targetId}`,
-        contentType: "application/json",
+        contentType: 'application/json',
         data: JSON.stringify({myprice: myprice}),
-        success: function (response) {
-            // 4. 모달을 종료한다. $('#container').removeClass('active');
+        success:function (response){
             $('#container').removeClass('active');
-            // 5. 성공적으로 등록되었음을 알리는 alert를 띄운다.
-            alert('성공적으로 등록되었습니다.');
-            // 6. 창을 새로고침한다. window.location.reload();
+            alert('성공!')
+            alert(myprice)
             window.location.reload();
         }
     })
-
 }

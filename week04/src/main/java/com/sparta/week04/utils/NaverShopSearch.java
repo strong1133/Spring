@@ -45,4 +45,3 @@ public class NaverShopSearch {
     }
 
 }
-i

@@ -17,20 +17,18 @@ public class ProductRestController {
     private final ProductService productService;
 
     @GetMapping("/api/products")
-    public List<Product> getProduct(){
+    public List<Product> getProduct() {
         return productRepository.findAll();
     }
 
     @PostMapping("/api/products")
-    public Product createProduct(@RequestBody ProductRequestDto productRequestDto){
+    public Product createProduct(@RequestBody ProductRequestDto productRequestDto) {
         Product product = new Product(productRequestDto);
         return productRepository.save(product);
     }
 
     @PutMapping("/api/products/{id}")
-    public Long updateProduct(@PathVariable Long id, @RequestBody ProductMypriceRequestDto productMypriceRequestDto){
+    public Long updateProduct(@PathVariable Long id, @RequestBody ProductMypriceRequestDto productMypriceRequestDto) {
         return productService.update(id, productMypriceRequestDto);
     }
-
-
 }

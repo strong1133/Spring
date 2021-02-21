@@ -1,5 +1,6 @@
-package com.restudy.week04.domain;
+package com.restudy.week04.utils;
 
+import com.restudy.week04.domain.ItemDto;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.http.*;
@@ -33,7 +34,7 @@ public class NaverShopSearch {
         JSONArray items = rjson.getJSONArray("items");
         List<ItemDto> itemDtoList = new ArrayList<>();
         for (int i = 0; i < items.length(); i++) {
-            JSONObject itemJson =items.getJSONObject(i);
+            JSONObject itemJson = (JSONObject) items.get(i);
             ItemDto itemDto = new ItemDto(itemJson);
             itemDtoList.add(itemDto);
         }

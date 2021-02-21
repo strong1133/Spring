@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Product extends Timestamped {
+public class Product extends Timestamped{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

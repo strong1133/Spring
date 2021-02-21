@@ -15,10 +15,9 @@ public class ProductService {
     @Transactional
     public Long update(Long id, ProductMypriceRequestDto productMypriceRequestDto) {
         Product product = productRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("해당 하는 아이디가 없습니다. ")
+                () -> new IllegalArgumentException("해당 아이디가 없습니다.")
         );
         product.update(productMypriceRequestDto);
         return product.getId();
     }
 }
-
