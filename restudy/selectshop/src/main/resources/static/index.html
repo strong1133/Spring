@@ -57,9 +57,21 @@
                     <div class="product-price"><span>1,232,232</span>원</div>
                 </div>
                 <div class="search-itemDto-right">
-                    <img src="images/icon-save.png"/>
+                    <img src="images/icon-save.png" id="save"/>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="popup-container ">
+        <div class="popup">
+            <button class="close" id="close">X</button>
+            <h1>⏰최저가 설정하기</h1>
+            <p>최저가를 설정해두면 선택하신 상품의 최저가가 떴을 때
+                표시해드려요!</p>
+            <div>
+                <input type="text" id="myprice" placeholder="2,000원">원
+            </div>
+            <button id="set-btn" onclick="setMyprice()">설정하기</button>
         </div>
     </div>
 </div>
