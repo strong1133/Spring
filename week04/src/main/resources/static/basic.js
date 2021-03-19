@@ -177,5 +177,4 @@ function setMyprice() {
             window.location.reload();
         }
     })
-
 }
